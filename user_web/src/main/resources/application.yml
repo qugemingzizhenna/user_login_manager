@@ -1,0 +1,24 @@
+#1.设置服务端口
+server:
+  port: 8080
+#2.页面模板缓存设置
+spring:
+  thymeleaf:
+    cache: false
+  mail:
+    protocol: smtp
+    host: smtp.sina.cn
+    username: 914673926yzb@sina.cn
+    password: i914673926YZB?
+#3在dubbo中设置唯一的服务名
+dubbo:
+  application:
+    name: user_web
+    #4.设置服务的注册地址
+  registry:
+    address: zookeeper://192.168.56.128:2181
+    #5.设置消费者的访问限制
+  consumer:
+    check: false
+    timeout: 10000
+    retries: 3

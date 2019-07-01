@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/user/login" method="post">
+    用户名:<input type="text" name="username" id="username"><br>
+    密码:<input type="text" name="password"><br>
+    <button type="button" onclick="forget()" >忘记密码?</button>
+    <button type="submit">登录</button>
+</form>
+<script src="/jquery/jquery-1.8.2.js"></script>
+<script type="text/javascript">
+    function forget() {
+
+        var username = $("#username").val();
+        alert(username)
+        $.ajax({
+            type: "POST",
+            url: "/user/forgetPassword/"+username,
+            contentType: 'application/json;charset=utf-8',
+            dataType: "json",
+           /* data:JSON.stringify(
+                {
+                    "username":$("#username").val()
+                }
+            ),*/
+            success: function(data){
+
+            },
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
+</script>
+</body>
+</html>
